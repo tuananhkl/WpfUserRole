@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfUser.UserInsertWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUser"
+        mc:Ignorable="d"
+        Title="UserInsertWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="txtblUser" HorizontalAlignment="Left" Margin="119,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="User"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="txtblUserName" HorizontalAlignment="Left" Margin="47,72,0,0" TextWrapping="Wrap" Text="UserName" VerticalAlignment="Top" RenderTransformOrigin="0.432,2.427"/>
+        <TextBlock x:Name="txtblGender" HorizontalAlignment="Left" Margin="465,160,0,0" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Top" RenderTransformOrigin="0.845,7.651"/>
+        <TextBox x:Name="txtbxUserName" HorizontalAlignment="Left" Height="23" Margin="128,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbbGender" HorizontalAlignment="Left" Margin="539,156,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.433,2.061">
+            <ComboBox.Items>
+                <ComboBoxItem>Male</ComboBoxItem>
+                <ComboBoxItem>Female</ComboBoxItem>
+            </ComboBox.Items>
+        </ComboBox>
+        <Button x:Name="btnInsert" Content="Insert" HorizontalAlignment="Left" Margin="95,264,0,0" VerticalAlignment="Top" Width="120" Click="btnInsert_Click"/>
+        <PasswordBox x:Name="pwbPassword" HorizontalAlignment="Left" Height="23" Margin="128,117,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="txtblPassword" HorizontalAlignment="Left" Margin="49,117,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" RenderTransformOrigin="0.432,2.427"/>
+        <TextBlock x:Name="txtblDoB" HorizontalAlignment="Left" Margin="49,160,0,0" TextWrapping="Wrap" Text="DoB" VerticalAlignment="Top" RenderTransformOrigin="0.432,2.427"/>
+        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="128,160,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="txtblAddress" HorizontalAlignment="Left" Margin="49,201,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" RenderTransformOrigin="0.432,2.427"/>
+        <TextBox x:Name="txtbxAddress" HorizontalAlignment="Left" Height="23" Margin="128,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="txtblEmail" HorizontalAlignment="Left" Margin="465,72,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" RenderTransformOrigin="0.432,2.427"/>
+        <TextBox x:Name="txtbxEmail" HorizontalAlignment="Left" Height="23" Margin="539,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="txtblAge" HorizontalAlignment="Left" Margin="465,117,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top" RenderTransformOrigin="0.432,2.427"/>
+        <TextBox x:Name="txtbxAge" PreviewTextInput="NumericOnly" HorizontalAlignment="Left" Height="23" Margin="539,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="txtblRole" HorizontalAlignment="Left" Margin="465,201,0,0" TextWrapping="Wrap" Text="Role" VerticalAlignment="Top" RenderTransformOrigin="0.845,7.651"/>
+        <ComboBox x:Name="cbbRole" HorizontalAlignment="Left" Margin="539,195,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.433,2.061">
+            <ComboBoxItem Content="Admin"/>
+            <ComboBoxItem Content="User"/>
+        </ComboBox>
+
+    </Grid>
+</Window>
