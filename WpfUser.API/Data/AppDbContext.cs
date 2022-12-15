@@ -30,7 +30,6 @@ public class AppDbContext : DbContext
                 Age = 23,
                 Gender = "Male",
                 Status = true,
-                UserRoleId = 1
             });
 
         modelBuilder.Entity<Role>().HasData(

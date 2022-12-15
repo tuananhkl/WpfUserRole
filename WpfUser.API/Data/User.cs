@@ -27,8 +27,6 @@ public class User
     [Required] public string Gender { get; set; }
 
     public bool Status { get; set; }
-
-    [ForeignKey("UserRole")]
-    public int UserRoleId { get; set; }
+    
     public UserRole UserRole { get; set; }
 }

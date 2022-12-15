@@ -86,13 +86,7 @@ namespace WpfUser.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int>("UserRoleId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserRoleId")
-                        .IsUnique();
 
                     b.ToTable("Users");
 
@@ -107,8 +101,7 @@ namespace WpfUser.API.Migrations
                             Gender = "Male",
                             Password = "Tuananh123.",
                             Status = true,
-                            UserName = "tuananh",
-                            UserRoleId = 1
+                            UserName = "tuananh"
                         });
                 });
 
@@ -128,7 +121,11 @@ namespace WpfUser.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
+                    b.HasIndex("RoleId")
+                        .IsUnique();
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("UserRoles");
 
@@ -141,31 +138,34 @@ namespace WpfUser.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WpfUser.API.Data.User", b =>
-                {
-                    b.HasOne("WpfUser.API.Data.UserRole", "UserRole")
-                        .WithOne("User")
-                        .HasForeignKey("WpfUser.API.Data.User", "UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserRole");
-                });
-
             modelBuilder.Entity("WpfUser.API.Data.UserRole", b =>
                 {
                     b.HasOne("WpfUser.API.Data.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
+                        .WithOne("UserRole")
+                        .HasForeignKey("WpfUser.API.Data.UserRole", "RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WpfUser.API.Data.User", "User")
+                        .WithOne("UserRole")
+                        .HasForeignKey("WpfUser.API.Data.UserRole", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Role");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("WpfUser.API.Data.UserRole", b =>
+            modelBuilder.Entity("WpfUser.API.Data.Role", b =>
                 {
-                    b.Navigation("User")
+                    b.Navigation("UserRole")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WpfUser.API.Data.User", b =>
+                {
+                    b.Navigation("UserRole")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618
